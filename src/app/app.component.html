@@ -1,1 +1,20 @@
 <router-outlet></router-outlet>
+
+<div class="container" style="display: flex;flex-direction: row;margin-top:100px;justify-content: center;">
+  <div class="user-list" style="margin-right:20px">
+    <span>user list</span>
+    <div  *ngFor="let user of users;">
+        <div (click) = "selectUser(user)">Name: {{user.name}}, Id:{{user.id}}</div>
+    </div>
+  </div>
+  <div class="user-edit">
+    <span>user edit</span>
+    <div>
+      <form [formGroup]="userForm" action="" style="display: flex;flex-direction: column;justify-content:space-evenly;min-height: 100px;" >
+        <input type="id" formControlName="id" placeholder="id">
+        <input type="text" formControlName="name"  placeholder="name">
+        <button (click)="onSubmit()">save</button>
+        </form>
+    </div>
+  </div>
+</div>
